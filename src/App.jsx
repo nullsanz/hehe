@@ -41,7 +41,7 @@ function App() {
     <main>
       <Navbar />
       <audio ref={audioRef}>
-        <source src="/audio/ms.mp3" type="audio/mpeg" /> {/* Ganti path di sini */}
+        <source src="/src/assets/pics/ms.mp3" type="audio/mpeg" /> {/* Ganti path di sini */}
         Your browser does not support the audio element.
       </audio>
       <section
