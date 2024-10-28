@@ -41,7 +41,7 @@ function App() {
     <main>
       <Navbar />
       <audio ref={audioRef}>
-        <source src="public/ms.mp3" type="audio/mpeg" /> {/* Ganti path di sini */}
+        <source src="https://drive.google.com/uc?id=1bEqfQKSetKKvFf_UmeZ39YGbC_PKHre0" type="audio/mpeg" /> {/* Ganti path di sini */}
         Your browser does not support the audio element.
       </audio>
       <section
