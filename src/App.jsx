@@ -2,7 +2,7 @@ import Navbar from "./components/Navbar";
 import heroImg from "./assets/pics/9.jpeg";
 import { Info } from "lucide-react";
 import { FaPlay } from "react-icons/fa6";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Modal from "./components/Modal";
 import CardImage from "./components/CardImage"; 
 import { images } from "./constants/images";
@@ -11,6 +11,7 @@ import "aos/dist/aos.css";
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
+  const audioRef = useRef(null);
 
   const Button = ({ children, variant, ...rest }) => {
     return (
@@ -30,12 +31,19 @@ function App() {
   }, []);
 
   const handlePlay = () => {
-    setOpenModal(true); // Buka modal
+    setOpenModal(true);
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
   };
 
   return (
     <main>
       <Navbar />
+      <audio ref={audioRef}>
+        <source src="https://raw.githubusercontent.com/nullsanz/hehe/master/audio/ms.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
       <section
         className="relative bg-cover bg-center bg-no-repeat h-screen flex justify-center items-end"
         style={{ backgroundImage: `url(${heroImg})` }}
@@ -106,19 +114,6 @@ function App() {
             <br />
             Lukman
           </p>
-        </div>
-        {/* Tambahkan iframe SoundCloud */}
-        <iframe 
-          width="100%" 
-          height="300" 
-          scrolling="no" 
-          frameBorder="no" 
-          allow="autoplay" 
-          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1943502443&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-        ></iframe>
-        <div style={{ fontSize: "10px", color: "#cccccc", lineBreak: "anywhere", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis", fontFamily: "Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif", fontWeight: "100" }}>
-          <a href="https://soundcloud.com/dokumenter-anulcopy" title="Dokumenter AnulCopy" target="_blank" style={{ color: "#cccccc", textDecoration: "none" }}>Dokumenter AnulCopy</a> · 
-          <a href="https://soundcloud.com/dokumenter-anulcopy/ms" title="ms" target="_blank" style={{ color: "#cccccc", textDecoration: "none" }}>ms</a>
         </div>
       </Modal>
     </main>
