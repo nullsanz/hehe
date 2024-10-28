@@ -65,7 +65,7 @@ const Navbar = () => {
           <Bell size={20} cursor={"pointer"} />
           <button className="profile flex gap-2 items-center cursor-pointer group relative">
             <img
-              src="https://i.pinimg.com/564x/d2/27/d5/d227d592a61dac7be53becc411e0211e.jpg"
+              src="https://github.com/nullsanz/nullsanzz.github.io/blob/main/img/Lukman1.jpg"
               alt="profile"
               className="w-10 h-10 rounded-full object-cover "
             />
