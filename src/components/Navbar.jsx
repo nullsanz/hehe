@@ -2,42 +2,19 @@ import { Bell, ChevronDown, Search } from "lucide-react";
 
 const Navbar = () => {
   const menus = [
-    {
-      id: 1,
-      title: "Home",
-    },
-    {
-      id: 2,
-      title: "Series",
-    },
-    {
-      id: 3,
-      title: "Movies",
-    },
-    {
-      id: 4,
-      title: "New and Popular",
-    },
-    {
-      id: 5,
-      title: "My List",
-    },
+    { id: 1, title: "Home" },
+    { id: 2, title: "Series" },
+    { id: 3, title: "Movies" },
+    { id: 4, title: "New and Popular" },
+    { id: 5, title: "My List" },
   ];
 
   const profileMenus = [
-    {
-      id: 1,
-      title: "Profile",
-    },
-    {
-      id: 2,
-      title: "Settings",
-    },
-    {
-      id: 1,
-      title: "Logout",
-    },
+    { id: 1, title: "Profile" },
+    { id: 2, title: "Settings" },
+    { id: 3, title: "Logout" }, // Memperbaiki id yang duplikat
   ];
+
   return (
     <header className="flex w-full bg-gradient-to-b from-[#000]/90 fixed top-0 z-20 justify-center">
       <main className="flex items-center justify-between w-full p-5 lg:py-7 lg:px-10 max-w-screen-2xl">
@@ -65,16 +42,17 @@ const Navbar = () => {
           <Bell size={20} cursor={"pointer"} />
           <button className="profile flex gap-2 items-center cursor-pointer group relative">
             <img
-              src="https://github.com/nullsanz/nullsanzz.github.io/blob/main/img/Lukman1.jpg"
+              src="https://raw.githubusercontent.com/nullsanz/nullsanzz.github.io/main/img/Lukman1.jpg" // Ganti dengan URL gambar langsung
               alt="profile"
-              className="w-10 h-10 rounded-full object-cover "
+              className="w-10 h-10 rounded-full object-cover"
             />
             <ChevronDown size={20} />
-            <div className="absolute opacity-0 invisible group-hover:visible group-hover:opacity-100 duration-300 ease-in-out top-full bg-black/70 right-0 py-3 mt-3  rounded-md flex flex-col gap-2 text-sm font-medium">
+            <div className="absolute opacity-0 invisible group-hover:visible group-hover:opacity-100 duration-300 ease-in-out top-full bg-black/70 right-0 py-3 mt-3 rounded-md flex flex-col gap-2 text-sm font-medium">
               {profileMenus.map((menu) => (
                 <a
                   href="#"
                   className="hover:text-red-500 duration-300 ease-in-out px-10"
+                  key={menu.id} // Tambahkan key untuk menghindari peringatan
                 >
                   {menu.title}
                 </a>
